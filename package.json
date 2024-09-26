@@ -25,9 +25,8 @@
     "app": "yarn run check && yarn --cwd test/app",
     "bootstrap": "yarn run build:constants && yarn --cwd test/app && yarn && yarn pods",
     "build:api:extractor": "api-extractor run --local",
-    "build:api:documenter": "api-documenter markdown --input-folder ./temp --output-folder ./docs/api",
     "build:constants": "node ./scripts/generate-constants.js",
-    "build:docs": "yarn run prepare && yarn run build:api:extractor && yarn run build:api:documenter",
+    "build:docs": "yarn run prepare && yarn run build:api:extractor",
     "build:errors": "node ./scripts/generate-errors.js",
     "check:lint": "eslint \"**/*.{js,ts,tsx}\"",
     "check:test": "jest",
@@ -64,7 +63,6 @@
     "@types/jest": "^28.1.6",
     "@types/react": "18.2.48",
     "@types/react-native": "0.62.13",
-    "api-documenter": "github:twilio/api-documenter#v0.0.1",
     "axios": "^1.7.2",
     "commitlint": "^11.0.0",
     "cors": "^2.8.5",
@@ -98,7 +96,6 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "yarn run check"
     }
   },

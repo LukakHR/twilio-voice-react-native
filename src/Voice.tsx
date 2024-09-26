@@ -706,6 +706,10 @@ export class Voice extends EventEmitter {
         );
     }
   }
+
+  async handleEvent(event: Record<string, any>): Promise<void> {
+    return NativeModule.voice_handleEvent(event);
+  }
 }
 
 /**
